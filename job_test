@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --partition=sandyb
+#SBATCH --qos=debug
+#SBATCH --job-name=test
+#SBATCH --output=lammps-%j.out
+#SBATCH --share
+#SBATCH --output=zout
+#SBATCH --error=zerr
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+
+./a.out
+
