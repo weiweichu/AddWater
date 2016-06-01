@@ -25,13 +25,14 @@ int main(int argc, const char * argv[]) {
     atom polymer;
     atom allwater;
     atom insertedwater;
-    double density = 0.01;
+    double density = 0.0001;
     vector<double> waterbox (3,200);
     ReadDataFile readpolymer(polymerfile);
     readpolymer.OutPolymer(&polymer,&polymerbox);
     ReadWater readwater(waterfile, polymerbox, density, waterbox);
     readwater.OutWater(&allwater);
    // GridM(polymer, ngrid, polymerbox); 
+   cout << " main " << allwater.size() << endl;
     InsertWater insert(polymer, allwater, radius, ngrid, polymerbox);
     insert.insert(&insertedwater);
     ofstream out;
