@@ -14,11 +14,12 @@ void InsertWater::insert(atom *inserted){
     int insertedwater=0;
     //cout << water_.size()<<endl;
     for (int i=0;i<water_.size();i++) {
-		cout << water_.size()/3<< "   "<< i<<endl;
+		cout << water_.size()<< "   "<< i<<endl;
         int flag=1;
         
         //for(int k =0; k<3;k++){
         if (i%3 == 0){
+			cout << "insert  "<<water_[i][0]<<"  "<<water_[i][1]<< "  "<<water_[i][2]<<endl;
 	        atom p = grid_.neighborlist(water_[i],po);
 	        
 	        cout <<p.size()<<"  neighborlistsize per water"<<endl;

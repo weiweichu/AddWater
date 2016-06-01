@@ -25,15 +25,15 @@ void ReadWater::OutWater(atom * water){
 		if (ran < density_){
 		getline(in,line);
 		sscanf(line.c_str(),"%s %lf %lf %lf",&t,&tx,&ty,&tz);
-		cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
+		//cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
 		allwater.push_back(Vector(tx,ty,tz));
 		getline(in,line);
 		sscanf(line.c_str(),"%s %lf %lf %lf",&t,&tx,&ty,&tz);
-		cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
+		//cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
 		allwater.push_back(Vector(tx,ty,tz));
 		getline(in,line);
 		sscanf(line.c_str(),"%s %lf %lf %lf",&t,&tx,&ty,&tz);
-		cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
+		//cout << t << "  "<<tx<<"  "<<ty<<"  "<<tz<<endl;
 		allwater.push_back(Vector(tx,ty,tz));}
 		else{
 			getline(in,line);
@@ -69,27 +69,34 @@ void ReadWater::OutWater(atom * water){
     else
         fzh = floor(box_[5]/wbox_[2]);
     
-    
+    cout << fxl <<"  " << fxh <<"  "<< fyl <<"  " << fyh <<"  "<< fzl <<"  " << fzh <<"  "<<endl;
     for (int i=fxl; i<=fxh; i++) {
         for (int j=fyl; j<=fyh; j++) {
             for (int k = fzl; k<=fzh; k++) {
                 for (int n=0; n<allwater.size()/3; n++) {
                     int m = n*3;
-                    if (allwater[m][0]*i>box_[0] && allwater[m][0]*i<box_[1] && allwater[m][1]*j>box_[2] && allwater[m][1]*j<box_[3] && allwater[m][2]*k>box_[4] && allwater[m][2]*k<box_[5]) {
+                    if (allwater[m][0]+wbox_[0]*(i-1)>box_[0] && allwater[m][0]+wbox_[0]*(i-1)<box_[1] && allwater[m][1]+wbox_[1]*(j-1)>box_[2] && allwater[m][1]+wbox_[1]*(j-1)<box_[3] && allwater[m][2]+wbox_[2]*(k-1)>box_[4] && allwater[m][2]+wbox_[2]*(k-1)<box_[5]) {
                         double d1 = allwater[m].dist(allwater[m+1]);
                         double d2 = allwater[m].dist(allwater[m+2]);
-                        cout << allwater[m][0] << "  "<<allwater[m][1]<< "  "<<allwater[m][2]<<endl;
-                        cout << allwater[m+1][0] << "  "<<allwater[m+1][1]<< "  "<<allwater[m+1][2]<<endl;
-                        cout << allwater[m+2][0] << "  "<<allwater[m+2][1]<< "  "<<allwater[m+2][2]<<endl;
+                        //cout << "before wrap" << endl;
+                        //cout << allwater[m][0] << "  "<<allwater[m][1]<< "  "<<allwater[m][2]<<endl;
+                        //cout << allwater[m+1][0] << "  "<<allwater[m+1][1]<< "  "<<allwater[m+1][2]<<endl;
+                        //cout << allwater[m+2][0] << "  "<<allwater[m+2][1]<< "  "<<allwater[m+2][2]<<endl;
                         //cout << allwater[m][0]<<endl;
-                        if ((d1 < 2) && (d2 < 2)){
-                        water->push_back(Vector(allwater[m][0]*i,allwater[m][1]*j,allwater[m][2]*k));
-                        water->push_back(Vector(allwater[m+1][0]*i,allwater[m+1][1]*j,allwater[m+1][2]*k));
-                        water->push_back(Vector(allwater[m+2][0]*i,allwater[m+2][1]*j,allwater[m+2][2]*k));}
-                      //  cout<<"i   "<<i<<"   j   "<<j<<"   k  "<<k<<"   n   "<<endl;                  
+                        if ((d1 < 1.5) && (d2 < 1.5)){
+                        water->push_back(Vector(allwater[m][0]+wbox_[0]*(i-1),allwater[m][1]+wbox_[1]*(j-1),allwater[m][2]+wbox_[2]*(k-1)));
+                        water->push_back(Vector(allwater[m+1][0]+wbox_[0]*(i-1),allwater[m+1][1]+wbox_[1]*(j-1),allwater[m+1][2]+wbox_[2]*(k-1)));
+                        water->push_back(Vector(allwater[m+2][0]+wbox_[0]*(i-1),allwater[m+2][1]+wbox_[1]*(j-1),allwater[m+2][2]+wbox_[2]*(k-1)));
+                        cout << "after wrap" << endl;
+                        cout << allwater[m][0]+wbox_[0]*(i-1) << "  "<<allwater[m][1]+wbox_[1]*(j-1)<< "  "<<allwater[m][2]+wbox_[2]*(k-1)<<endl;
+                        cout << allwater[m+1][0]+wbox_[0]*(i-1) << "  "<<allwater[m+1][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+1][2]+wbox_[2]*(k-1)<<endl;
+                        cout << allwater[m+2][0]+wbox_[0]*(i-1) << "  "<<allwater[m+2][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+2][2]+wbox_[2]*(k-1)<<endl;
+                      
+                      }//  cout<<"i   "<<i<<"   j   "<<j<<"   k  "<<k<<"   n   "<<endl;                  
                     }
                 }
             }
         }
-    }    
+    } 
+    cout << "size of waterlist  " << water->size()<< endl;   
 }

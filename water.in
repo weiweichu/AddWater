@@ -1,0 +1,49 @@
+# Model system
+units    real
+atom_style  full
+boundary  p p p
+processors     * * *
+dielectric      1.0
+pair_style      hybrid lj/cut/coul/long/soft 2.0 0.5 10.0 12.0 lj/cut/coul/long/soft 2.0 0.5 10.0 12.0 hybrid lj/cut/coul/long/soft 2.0 0.5 10.0 12.0 
+#pair_style lj/cut/coul/long/soft 2.0 0.5 12.0 12.0
+bond_style  harmonic
+angle_style  harmonic 
+dihedral_style  none
+improper_style  none 
+kspace_style    pppm 1.0e-8
+special_bonds  lj/coul 0.0 0.0 0.5 
+#pair_modify     tail yes #mix arithmetic
+neighbor  2.0 bin
+neigh_modify  every 1 delay 0 check yes
+#read_restart  NVT1_3.restart  #after_SC.rst #after_enmin.rst #NPT_test.restart
+read_data  water.data
+#create_atoms    18 random 250 10000 NULL units box
+#set             type 18 charge -1.0
+
+pair_coeff 1 1  lj/cut/coul/long/soft 3 0.155 3.166 0.5
+pair_coeff * 2  lj/cut/coul/long/soft 3 0.000 0.000 0.5
+pair_modify     pair lj/cut/coul/long 1 special lj/coul 0.0 0.0 0.0 tail yes #mix arithmetic
+pair_modify     pair lj/cut/coul/long 2 special lj/coul 0.0 0.0 0.5 tail yes #mix arithmetic
+group    mobile union all
+group    water type 1 2 
+fix 10 water shake 0.0001 20 0 b 20 a 24
+timestep         1
+thermo_style  custom etotal ke pe ebond eangle edihed eimp evdwl ecoul elong temp press vol
+thermo_modify  line multi
+thermo    1
+thermo_modify  flush yes
+dump 3 all custom 1000 npt.lammpstrj id mol type xu yu zu
+restart 1000 npt1.restart npt2.restart
+#min_style      cg
+#minimize       0.0 0.0001 2000 2000
+#write_restart  after_enmin.rst
+#fix 1 all nvt temp 590.0 590.0 100.0
+#run 1000000
+#write_restart  after_nvt.rst
+#fix 1 all npt temp 500.0 500.0 100.0 aniso 100.0 100.0 1000.0
+#run 2000
+#fix 1 all npt temp 500.0 500.0 100.0 aniso 50.0 50.0 1000.0
+#run 2000
+fix 1 all npt temp 500.0 500.0 100.0 aniso 1.0 1.0 1000.0
+run 30000
+write_restart MD_npt.rst
