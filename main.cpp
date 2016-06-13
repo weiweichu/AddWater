@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     atom polymer;
     atom allwater;
     atom insertedwater;
-    double density = 0.1;
+    double density = 0.05;
     vector<double> waterbox (3,200);
     ReadDataFile readpolymer(polymerfile);
     readpolymer.OutPolymer(&polymer,&polymerbox);
