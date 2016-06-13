@@ -7,11 +7,17 @@
 //
 
 #include "InsertWater.h"
+#include "ReadPotential.h"
 
 void InsertWater::insert(atom *inserted){
    // atomlist all;
     atomlist po = grid_.AtomList();
     int insertedwater=0;
+    double ran;
+    vector <double> potent;
+    char potentialfile[] = "density.txt";
+    ReadPotential readpotential(potentialfile);
+    readpotential.potential(&potent);
     //cout << water_.size()<<endl;
     for (int i=0;i<water_.size();i++) {
 		cout << water_.size()<< "   "<< i<<endl;
@@ -20,10 +26,13 @@ void InsertWater::insert(atom *inserted){
         //for(int k =0; k<3;k++){
         if (i%3 == 0){
 			cout << "insert  "<<water_[i][0]<<"  "<<water_[i][1]<< "  "<<water_[i][2]<<endl;
+	        int kp = int(water_[i][0]-box_[0]);
+	        ran = double(rand())/RAND_MAX;
+		    if (ran < potent[kp]){
 	        atom p = grid_.neighborlist(water_[i],po);
 	        
 	        cout <<p.size()<<"  neighborlistsize per water"<<endl;
-	       
+	        
 	        for(int j=0;j<p.size();j++){
 	                if (water_[i*3].dist(p[j])>radius_) {
 	                    flag *= 1;
@@ -49,5 +58,5 @@ void InsertWater::insert(atom *inserted){
             }        
         }
     }
-    
+   } 
 }

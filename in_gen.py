@@ -170,7 +170,7 @@ for i in range(2,len(water)):
 
 out_file = open(outf,"w")
 
-out_file.write('PS with ' + str(nchains) +' chains and ' + str(64) + ' internal PS monomers per chain and ' + str(64) +' int PMMA monomers per chain'+ 'and ' + str(nions) + ' ions' + ' '+str(len(water)-2)+' waters' +'\n'
+out_file.write('PS with ' + str(nchains) +' chains and ' + str(64) + ' internal PS monomers per chain and ' + str(64) +' int PMMA monomers per chain'+ 'and ' + str(nions) + ' ions' + ' '+str((len(water)-2)/3)+' waters' +'\n'
 + '\n' +
 str(natomn) + ' ' + 'atoms' + '\n'
 + str(nbondn) + ' ' + 'bonds' + '\n'

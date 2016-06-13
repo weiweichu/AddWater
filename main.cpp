@@ -10,6 +10,7 @@
 #include "ReadPolymer.h"
 #include "ReadWater.h"
 #include "InsertWater.h"
+//#include "ReadPotential.h"
 //#include "GridM.h"
 
 using namespace std;
@@ -25,7 +26,7 @@ int main(int argc, const char * argv[]) {
     atom polymer;
     atom allwater;
     atom insertedwater;
-    double density = 0.0001;
+    double density = 0.1;
     vector<double> waterbox (3,200);
     ReadDataFile readpolymer(polymerfile);
     readpolymer.OutPolymer(&polymer,&polymerbox);
