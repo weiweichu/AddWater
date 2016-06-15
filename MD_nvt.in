@@ -4,211 +4,256 @@ atom_style  full
 boundary  p p p
 processors     * * *
 dielectric      1.0
-pair_style      hybrid lj/cut/coul/long 12.0 lj/cut/coul/long 12.0
+pair_style      hybrid lj/cut/coul/long 12.0 lj/cut/coul/long 12.0 lj/cut/coul/long 12.0
 #pair_style lj/cut/coul/long/soft 2.0 0.5 12.0 12.0
 bond_style  harmonic
 angle_style  harmonic 
 dihedral_style  harmonic
 improper_style  hybrid harmonic cvff 
-kspace_style    pppm 1.0e-8
+kspace_style    pppm 1.0e-4
 special_bonds  lj/coul 0.0 0.0 0.5 
 #pair_modify     tail yes #mix arithmetic
 neighbor  2.0 bin
 neigh_modify  every 1 delay 0 check yes
 #read_restart  NVT1_3.restart  #after_SC.rst #after_enmin.rst #NPT_test.restart
-read_data  after_SC_0.8.data
+read_data  polymerwater.data
 #create_atoms    18 random 250 10000 NULL units box
 #set             type 18 charge -1.0
 improper_style  hybrid harmonic cvff
 improper_coeff 1 harmonic 20.0048 0
 improper_coeff 2 cvff 1.1 -1 2
-pair_coeff 1 1 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 1 2 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 1 3 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 1 4 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 1 5 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 1 6 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 1 7 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 1 8 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 1 9 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 1 10 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 1 11 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 1 12 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 1 13 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 1 14 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 1 15 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 1 16 lj/cut/coul/long 1 0.075 3.353
- pair_coeff 1 17 lj/cut/coul/long 1 0.050 2.853
- pair_coeff 1 18 lj/cut/coul/long 1 0.077 3.268
- pair_coeff 2 2 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 2 3 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 2 4 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 2 5 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 2 6 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 2 7 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 2 8 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 2 9 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 2 10 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 2 11 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 2 12 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 2 13 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 2 14 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 2 15 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 2 16 lj/cut/coul/long 1 0.071 2.909
- pair_coeff 2 17 lj/cut/coul/long 1 0.048 2.409
- pair_coeff 2 18 lj/cut/coul/long 1 0.073 2.824
- pair_coeff 3 3 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 3 4 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 3 5 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 3 6 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 3 7 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 3 8 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 3 9 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 3 10 lj/cut/coul/long 1 0.109 3.400
- pair_coeff 3 11 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 3 12 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 3 13 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 3 14 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 3 15 lj/cut/coul/long 1 0.109 3.400
- pair_coeff 3 16 lj/cut/coul/long 1 0.068 3.525
- pair_coeff 3 17 lj/cut/coul/long 1 0.046 3.025
- pair_coeff 3 18 lj/cut/coul/long 1 0.070 3.440
- pair_coeff 4 4 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 4 5 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 4 6 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 4 7 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 4 8 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 4 9 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 4 10 lj/cut/coul/long 1 0.109 3.400
- pair_coeff 4 11 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 4 12 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 4 13 lj/cut/coul/long 1 0.070 3.550
- pair_coeff 4 14 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 4 15 lj/cut/coul/long 1 0.109 3.400
- pair_coeff 4 16 lj/cut/coul/long 1 0.068 3.525
- pair_coeff 4 17 lj/cut/coul/long 1 0.046 3.025
- pair_coeff 4 18 lj/cut/coul/long 1 0.070 3.440
- pair_coeff 5 5 lj/cut/coul/long 1 0.030 2.420
- pair_coeff 5 6 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 5 7 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 5 8 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 5 9 lj/cut/coul/long 1 0.030 2.420
- pair_coeff 5 10 lj/cut/coul/long 1 0.072 2.835
- pair_coeff 5 11 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 5 12 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 5 13 lj/cut/coul/long 1 0.046 2.985
- pair_coeff 5 14 lj/cut/coul/long 1 0.030 2.420
- pair_coeff 5 15 lj/cut/coul/long 1 0.072 2.835
- pair_coeff 5 16 lj/cut/coul/long 1 0.045 2.960
- pair_coeff 5 17 lj/cut/coul/long 1 0.030 2.460
- pair_coeff 5 18 lj/cut/coul/long 1 0.046 2.875
- pair_coeff 6 6 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 6 7 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 6 8 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 6 9 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 6 10 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 6 11 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 6 12 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 6 13 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 6 14 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 6 15 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 6 16 lj/cut/coul/long 1 0.075 3.353
- pair_coeff 6 17 lj/cut/coul/long 1 0.050 2.853
- pair_coeff 6 18 lj/cut/coul/long 1 0.077 3.268
- pair_coeff 7 7 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 7 8 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 7 9 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 7 10 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 7 11 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 7 12 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 7 13 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 7 14 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 7 15 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 7 16 lj/cut/coul/long 1 0.071 2.909
- pair_coeff 7 17 lj/cut/coul/long 1 0.048 2.409
- pair_coeff 7 18 lj/cut/coul/long 1 0.073 2.824
- pair_coeff 8 8 lj/cut/coul/long 2 0.070 3.550
- pair_coeff 8 9 lj/cut/coul/long 2 0.046 2.931
- pair_coeff 8 10 lj/cut/coul/long 2 0.109 3.397
- pair_coeff 8 11 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 8 12 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 8 13 lj/cut/coul/long 2 0.070 3.550
- pair_coeff 8 14 lj/cut/coul/long 2 0.046 2.931
- pair_coeff 8 15 lj/cut/coul/long 2 0.109 3.397
- pair_coeff 8 16 lj/cut/coul/long 2 0.068 3.525
- pair_coeff 8 17 lj/cut/coul/long 2 0.046 2.979
- pair_coeff 8 18 lj/cut/coul/long 2 0.070 3.438
- pair_coeff 9 9 lj/cut/coul/long 2 0.030 2.420
- pair_coeff 9 10 lj/cut/coul/long 2 0.071 2.804
- pair_coeff 9 11 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 9 12 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 9 13 lj/cut/coul/long 2 0.046 2.931
- pair_coeff 9 14 lj/cut/coul/long 2 0.030 2.420
- pair_coeff 9 15 lj/cut/coul/long 2 0.071 2.804
- pair_coeff 9 16 lj/cut/coul/long 2 0.044 2.910
- pair_coeff 9 17 lj/cut/coul/long 2 0.030 2.460
- pair_coeff 9 18 lj/cut/coul/long 2 0.046 2.839
- pair_coeff 10 10 lj/cut/coul/long 2 0.170 3.250
- pair_coeff 10 11 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 10 12 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 10 13 lj/cut/coul/long 2 0.109 3.397
- pair_coeff 10 14 lj/cut/coul/long 2 0.071 2.804
- pair_coeff 10 15 lj/cut/coul/long 2 0.170 3.250
- pair_coeff 10 16 lj/cut/coul/long 2 0.106 3.373
- pair_coeff 10 17 lj/cut/coul/long 2 0.071 2.850
- pair_coeff 10 18 lj/cut/coul/long 2 0.109 3.290
- pair_coeff 11 11 lj/cut/coul/long 1 0.084 3.207
- pair_coeff 11 12 lj/cut/coul/long 1 0.080 2.763
- pair_coeff 11 13 lj/cut/coul/long 1 0.077 3.378
- pair_coeff 11 14 lj/cut/coul/long 1 0.050 2.813
- pair_coeff 11 15 lj/cut/coul/long 1 0.120 3.228
- pair_coeff 11 16 lj/cut/coul/long 1 0.075 3.353
- pair_coeff 11 17 lj/cut/coul/long 1 0.050 2.853
- pair_coeff 11 18 lj/cut/coul/long 1 0.077 3.268
- pair_coeff 12 12 lj/cut/coul/long 1 0.076 2.318
- pair_coeff 12 13 lj/cut/coul/long 1 0.073 2.934
- pair_coeff 12 14 lj/cut/coul/long 1 0.048 2.369
- pair_coeff 12 15 lj/cut/coul/long 1 0.114 2.784
- pair_coeff 12 16 lj/cut/coul/long 1 0.071 2.909
- pair_coeff 12 17 lj/cut/coul/long 1 0.048 2.409
- pair_coeff 12 18 lj/cut/coul/long 1 0.073 2.824
- pair_coeff 13 13 lj/cut/coul/long 2 0.070 3.550
- pair_coeff 13 14 lj/cut/coul/long 2 0.046 2.931
- pair_coeff 13 15 lj/cut/coul/long 2 0.109 3.397
- pair_coeff 13 16 lj/cut/coul/long 2 0.068 3.525
- pair_coeff 13 17 lj/cut/coul/long 2 0.046 2.979
- pair_coeff 13 18 lj/cut/coul/long 2 0.070 3.438
- pair_coeff 14 14 lj/cut/coul/long 2 0.030 2.420
- pair_coeff 14 15 lj/cut/coul/long 2 0.071 2.804
- pair_coeff 14 16 lj/cut/coul/long 2 0.044 2.910
- pair_coeff 14 17 lj/cut/coul/long 2 0.030 2.460
- pair_coeff 14 18 lj/cut/coul/long 2 0.046 2.839
- pair_coeff 15 15 lj/cut/coul/long 2 0.170 3.250
- pair_coeff 15 16 lj/cut/coul/long 2 0.106 3.373
- pair_coeff 15 17 lj/cut/coul/long 2 0.071 2.850
- pair_coeff 15 18 lj/cut/coul/long 2 0.109 3.290
- pair_coeff 16 16 lj/cut/coul/long 2 0.066 3.500
- pair_coeff 16 17 lj/cut/coul/long 2 0.044 2.958
- pair_coeff 16 18 lj/cut/coul/long 2 0.068 3.414
- pair_coeff 17 17 lj/cut/coul/long 2 0.030 2.500
- pair_coeff 17 18 lj/cut/coul/long 2 0.046 2.885
- pair_coeff 18 18 lj/cut/coul/long 2 0.070 3.330 
+pair_coeff 1  1 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 1  2 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 1  3 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 1  4 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 1  5 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 1  6 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 1  7 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 1  8 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 1  9 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 1  10 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 1  11 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 1  12 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 1  13 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 1  14 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 1  15 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 1  16 lj/cut/coul/long 1 0.074 3.353
+pair_coeff 1  17 lj/cut/coul/long 1 0.050 2.853
+pair_coeff 1  18 lj/cut/coul/long 1 0.060 4.204
+pair_coeff 1  19 lj/cut/coul/long 3 0.114 3.186
+pair_coeff 1  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 2  2 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 2  3 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 2  4 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 2  5 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 2  6 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 2  7 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 2  8 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 2  9 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 2  10 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 2  11 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 2  12 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 2  13 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 2  14 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 2  15 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 2  16 lj/cut/coul/long 1 0.071 2.909
+pair_coeff 2  17 lj/cut/coul/long 1 0.048 2.409
+pair_coeff 2  18 lj/cut/coul/long 1 0.057 3.760
+pair_coeff 2  19 lj/cut/coul/long 3 0.109 2.742
+pair_coeff 2  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 3  3 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 3  4 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 3  5 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 3  6 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 3  7 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 3  8 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 3  9 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 3  10 lj/cut/coul/long 1 0.109 3.400
+pair_coeff 3  11 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 3  12 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 3  13 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 3  14 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 3  15 lj/cut/coul/long 1 0.109 3.400
+pair_coeff 3  16 lj/cut/coul/long 1 0.068 3.525
+pair_coeff 3  17 lj/cut/coul/long 1 0.046 3.025
+pair_coeff 3  18 lj/cut/coul/long 1 0.055 4.375
+pair_coeff 3  19 lj/cut/coul/long 3 0.104 3.358
+pair_coeff 3  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 4  4 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 4  5 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 4  6 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 4  7 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 4  8 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 4  9 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 4  10 lj/cut/coul/long 1 0.109 3.400
+pair_coeff 4  11 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 4  12 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 4  13 lj/cut/coul/long 1 0.070 3.550
+pair_coeff 4  14 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 4  15 lj/cut/coul/long 1 0.109 3.400
+pair_coeff 4  16 lj/cut/coul/long 1 0.068 3.525
+pair_coeff 4  17 lj/cut/coul/long 1 0.046 3.025
+pair_coeff 4  18 lj/cut/coul/long 1 0.055 4.375
+pair_coeff 4  19 lj/cut/coul/long 3 0.104 3.358
+pair_coeff 4  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 5  5 lj/cut/coul/long 1 0.030 2.420
+pair_coeff 5  6 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 5  7 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 5  8 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 5  9 lj/cut/coul/long 1 0.030 2.420
+pair_coeff 5  10 lj/cut/coul/long 1 0.071 2.835
+pair_coeff 5  11 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 5  12 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 5  13 lj/cut/coul/long 1 0.046 2.985
+pair_coeff 5  14 lj/cut/coul/long 1 0.030 2.420
+pair_coeff 5  15 lj/cut/coul/long 1 0.071 2.835
+pair_coeff 5  16 lj/cut/coul/long 1 0.044 2.960
+pair_coeff 5  17 lj/cut/coul/long 1 0.030 2.460
+pair_coeff 5  18 lj/cut/coul/long 1 0.036 3.810
+pair_coeff 5  19 lj/cut/coul/long 3 0.068 2.793
+pair_coeff 5  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 6  6 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 6  7 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 6  8 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 6  9 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 6  10 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 6  11 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 6  12 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 6  13 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 6  14 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 6  15 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 6  16 lj/cut/coul/long 1 0.074 3.353
+pair_coeff 6  17 lj/cut/coul/long 1 0.050 2.853
+pair_coeff 6  18 lj/cut/coul/long 1 0.060 4.204
+pair_coeff 6  19 lj/cut/coul/long 3 0.114 3.186
+pair_coeff 6  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 7  7 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 7  8 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 7  9 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 7  10 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 7  11 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 7  12 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 7  13 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 7  14 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 7  15 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 7  16 lj/cut/coul/long 1 0.071 2.909
+pair_coeff 7  17 lj/cut/coul/long 1 0.048 2.409
+pair_coeff 7  18 lj/cut/coul/long 1 0.057 3.760
+pair_coeff 7  19 lj/cut/coul/long 3 0.109 2.742
+pair_coeff 7  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 8  8 lj/cut/coul/long 2 0.070 3.550
+pair_coeff 8  9 lj/cut/coul/long 2 0.046 2.931
+pair_coeff 8  10 lj/cut/coul/long 2 0.109 3.397
+pair_coeff 8  11 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 8  12 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 8  13 lj/cut/coul/long 2 0.070 3.550
+pair_coeff 8  14 lj/cut/coul/long 2 0.046 2.931
+pair_coeff 8  15 lj/cut/coul/long 2 0.109 3.397
+pair_coeff 8  16 lj/cut/coul/long 2 0.068 3.525
+pair_coeff 8  17 lj/cut/coul/long 2 0.046 2.979
+pair_coeff 8  18 lj/cut/coul/long 2 0.055 4.375
+pair_coeff 8  19 lj/cut/coul/long 3 0.104 3.358
+pair_coeff 8  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 9  9 lj/cut/coul/long 2 0.030 2.420
+pair_coeff 9  10 lj/cut/coul/long 2 0.071 2.804
+pair_coeff 9  11 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 9  12 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 9  13 lj/cut/coul/long 2 0.046 2.931
+pair_coeff 9  14 lj/cut/coul/long 2 0.030 2.420
+pair_coeff 9  15 lj/cut/coul/long 2 0.071 2.804
+pair_coeff 9  16 lj/cut/coul/long 2 0.044 2.910
+pair_coeff 9  17 lj/cut/coul/long 2 0.030 2.460
+pair_coeff 9  18 lj/cut/coul/long 2 0.036 3.810
+pair_coeff 9  19 lj/cut/coul/long 3 0.068 2.793
+pair_coeff 9  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 10  10 lj/cut/coul/long 2 0.170 3.250
+pair_coeff 10  11 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 10  12 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 10  13 lj/cut/coul/long 2 0.109 3.397
+pair_coeff 10  14 lj/cut/coul/long 2 0.071 2.804
+pair_coeff 10  15 lj/cut/coul/long 2 0.170 3.250
+pair_coeff 10  16 lj/cut/coul/long 2 0.106 3.373
+pair_coeff 10  17 lj/cut/coul/long 2 0.071 2.850
+pair_coeff 10  18 lj/cut/coul/long 2 0.085 4.226
+pair_coeff 10  19 lj/cut/coul/long 3 0.162 3.208
+pair_coeff 10  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 11  11 lj/cut/coul/long 1 0.084 3.207
+pair_coeff 11  12 lj/cut/coul/long 1 0.080 2.763
+pair_coeff 11  13 lj/cut/coul/long 1 0.077 3.378
+pair_coeff 11  14 lj/cut/coul/long 1 0.050 2.813
+pair_coeff 11  15 lj/cut/coul/long 1 0.119 3.228
+pair_coeff 11  16 lj/cut/coul/long 1 0.074 3.353
+pair_coeff 11  17 lj/cut/coul/long 1 0.050 2.853
+pair_coeff 11  18 lj/cut/coul/long 1 0.060 4.204
+pair_coeff 11  19 lj/cut/coul/long 3 0.114 3.186
+pair_coeff 11  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 12  12 lj/cut/coul/long 1 0.076 2.318
+pair_coeff 12  13 lj/cut/coul/long 1 0.073 2.934
+pair_coeff 12  14 lj/cut/coul/long 1 0.048 2.369
+pair_coeff 12  15 lj/cut/coul/long 1 0.114 2.784
+pair_coeff 12  16 lj/cut/coul/long 1 0.071 2.909
+pair_coeff 12  17 lj/cut/coul/long 1 0.048 2.409
+pair_coeff 12  18 lj/cut/coul/long 1 0.057 3.760
+pair_coeff 12  19 lj/cut/coul/long 3 0.109 2.742
+pair_coeff 12  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 13  13 lj/cut/coul/long 2 0.070 3.550
+pair_coeff 13  14 lj/cut/coul/long 2 0.046 2.931
+pair_coeff 13  15 lj/cut/coul/long 2 0.109 3.397
+pair_coeff 13  16 lj/cut/coul/long 2 0.068 3.525
+pair_coeff 13  17 lj/cut/coul/long 2 0.046 2.979
+pair_coeff 13  18 lj/cut/coul/long 2 0.055 4.375
+pair_coeff 13  19 lj/cut/coul/long 3 0.104 3.358
+pair_coeff 13  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 14  14 lj/cut/coul/long 2 0.030 2.420
+pair_coeff 14  15 lj/cut/coul/long 2 0.071 2.804
+pair_coeff 14  16 lj/cut/coul/long 2 0.044 2.910
+pair_coeff 14  17 lj/cut/coul/long 2 0.030 2.460
+pair_coeff 14  18 lj/cut/coul/long 2 0.036 3.810
+pair_coeff 14  19 lj/cut/coul/long 3 0.068 2.793
+pair_coeff 14  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 15  15 lj/cut/coul/long 2 0.170 3.250
+pair_coeff 15  16 lj/cut/coul/long 2 0.106 3.373
+pair_coeff 15  17 lj/cut/coul/long 2 0.071 2.850
+pair_coeff 15  18 lj/cut/coul/long 2 0.085 4.226
+pair_coeff 15  19 lj/cut/coul/long 3 0.162 3.208
+pair_coeff 15  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 16  16 lj/cut/coul/long 2 0.066 3.500
+pair_coeff 16  17 lj/cut/coul/long 2 0.044 2.958
+pair_coeff 16  18 lj/cut/coul/long 2 0.053 4.351
+pair_coeff 16  19 lj/cut/coul/long 3 0.101 3.333
+pair_coeff 16  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 17  17 lj/cut/coul/long 2 0.030 2.500
+pair_coeff 17  18 lj/cut/coul/long 2 0.036 3.850
+pair_coeff 17  19 lj/cut/coul/long 3 0.068 2.833
+pair_coeff 17  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 18  18 lj/cut/coul/long 2 0.043 5.201
+pair_coeff 18  19 lj/cut/coul/long 3 0.082 4.183
+pair_coeff 18  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 19  19 lj/cut/coul/long 3 0.155 3.166
+pair_coeff 19  20 lj/cut/coul/long 3 0.000 0.000
+pair_coeff 20  20 lj/cut/coul/long 3 0.000 0.000
 pair_modify     pair lj/cut/coul/long 1 special lj/coul 0.0 0.0 0.0 tail yes #mix arithmetic
 pair_modify     pair lj/cut/coul/long 2 special lj/coul 0.0 0.0 0.5 tail yes #mix arithmetic
 group    mobile union all
-timestep         1
+group    water type 19 20
+fix 10 water shake 0.0001 20 0 b 20 a 24
+timestep         0.1
 thermo_style  custom etotal ke pe ebond eangle edihed eimp evdwl ecoul elong temp press vol
 thermo_modify  line multi
 thermo    1
 thermo_modify  flush yes
-dump 3 all custom 1000 MD.lammpstrj id mol type xu yu zu
-restart 1000 MD1.restart MD2.restart
+dump 3 all custom 1000 nvt.lammpstrj id mol type xu yu zu
+restart 1000 nvt1.restart nvt2.restart
 #min_style      cg
 #minimize       0.0 0.0001 2000 2000
 #write_restart  after_enmin.rst
 #fix 1 all nvt temp 590.0 590.0 100.0
 #run 1000000
 #write_restart  after_nvt.rst
-fix 1 all nvt temp 500.0 500.0 100.0 #aniso 1.0 1.0 1000.0
-run 15000
+#fix 1 all npt temp 500.0 500.0 100.0 aniso 100.0 100.0 1000.0
+#run 2000
+#fix 1 all npt temp 500.0 500.0 100.0 aniso 50.0 50.0 1000.0
+#run 2000
+fix 1 all nvt temp 500.0 500.0 100.0 # aniso 1.0 1.0 1000.0
+run 30000
 write_restart MD_nvt.rst

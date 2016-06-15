@@ -20,13 +20,13 @@ typedef vector<atom> atomlist;
 int main(int argc, const char * argv[]) {
     char waterfile[] = "300k.xyz";
     char polymerfile[] = "MD_npt.data";
-    double radius = 1.0;
+    double radius = 3.0;
     VectorInt ngrid(100,50,50);
     vector<double> polymerbox;
     atom polymer;
     atom allwater;
     atom insertedwater;
-    double density = 0.05;
+    double density = 1;
     vector<double> waterbox (3,200);
     ReadDataFile readpolymer(polymerfile);
     readpolymer.OutPolymer(&polymer,&polymerbox);

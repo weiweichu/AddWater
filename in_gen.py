@@ -40,7 +40,7 @@ outf = "polymerwater.data"
 lines = f.readlines()
 i=2
 ic = 300
-nchains = 204
+nchains = 179
 chargedensity = 0.5
 nions = nchains*64*chargedensity
 

@@ -56,24 +56,24 @@ public:
     int wrap(int a,int b, int c){
 		if (a>ngrid_[0]){
 			a-=ngrid_[0];
-			cout<< "grid wrap x yes" << endl;}
+			//cout<< "grid wrap x yes" << endl;}
 		if (a<=0){
 			a+=ngrid_[0];
-			cout<< "grid wrap x yes" << endl;}
+			//cout<< "grid wrap x yes" << endl;}
 			
 		if (b>ngrid_[1]){
 			b-=ngrid_[1];
-			cout<< "grid wrap y yes" << endl;}
+			//cout<< "grid wrap y yes" << endl;}
 		if (b<=0){
 			b+=ngrid_[1];
-			cout<< "grid wrap y yes" << endl;}
+			//cout<< "grid wrap y yes" << endl;}
 			
 		if (c>ngrid_[2]){
 			c-=ngrid_[2];
-			cout<< "grid wrap z yes" << endl;}
+			//cout<< "grid wrap z yes" << endl;}
 		if (c<=0){
 			c+=ngrid_[2];
-			cout<< "grid wrap z yes" << endl;}
+			//cout<< "grid wrap z yes" << endl;}
 		//cout<<"gridindex  "<<a<<"  "<<b<<"   "<<c<<endl;				
 		int p;
 		p = a-1+ngrid_[0]*(b-1+ngrid_[1]*(c-1));
