@@ -44,36 +44,37 @@ public:
         a = ceil(position[0]*ngrid_[0]/boxl_[0]);
         b = ceil(position[1]*ngrid_[1]/boxl_[1]);
         c = ceil(position[2]*ngrid_[2]/boxl_[2]);
-       // if ((a>ngrid_[0])||(b>ngrid_[1])||(c>ngrid_[2])){
-				//cout << "out of grid" << endl;
-				//cout << position[0]<<"   "<<position[1]<<"  "<<position[2]<<endl;
-				//cout <<boxl_[0]<<"   "<<boxl_[1]<<"   "<<boxl_[2]<<endl;
-				//cout <<box_[0]<<"   "<<box_[1]<<"   "<<box_[2]<<"   "<<box_[3]<<"   "<<box_[4]<<"   "<<box_[5]<<endl;
-		//}
+       
         return VectorInt(a,b,c);
     }
     
     int wrap(int a,int b, int c){
 		if (a>ngrid_[0]){
 			a-=ngrid_[0];
-			//cout<< "grid wrap x yes" << endl;}
+			//cout<< "grid wrap x yes" << endl;
+			}
 		if (a<=0){
 			a+=ngrid_[0];
-			//cout<< "grid wrap x yes" << endl;}
+			//cout<< "grid wrap x yes" << endl;
+			}
 			
 		if (b>ngrid_[1]){
 			b-=ngrid_[1];
-			//cout<< "grid wrap y yes" << endl;}
+			//cout<< "grid wrap y yes" << endl;
+			}
 		if (b<=0){
 			b+=ngrid_[1];
-			//cout<< "grid wrap y yes" << endl;}
+			//cout<< "grid wrap y yes" << endl;
+			}
 			
 		if (c>ngrid_[2]){
 			c-=ngrid_[2];
-			//cout<< "grid wrap z yes" << endl;}
+			//cout<< "grid wrap z yes" << endl;
+			}
 		if (c<=0){
 			c+=ngrid_[2];
-			//cout<< "grid wrap z yes" << endl;}
+			//cout<< "grid wrap z yes" << endl;
+			}
 		//cout<<"gridindex  "<<a<<"  "<<b<<"   "<<c<<endl;				
 		int p;
 		p = a-1+ngrid_[0]*(b-1+ngrid_[1]*(c-1));

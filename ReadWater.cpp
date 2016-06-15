@@ -87,10 +87,10 @@ void ReadWater::OutWater(atom * water){
                         water->push_back(Vector(allwater[m][0]+wbox_[0]*(i-1),allwater[m][1]+wbox_[1]*(j-1),allwater[m][2]+wbox_[2]*(k-1)));
                         water->push_back(Vector(allwater[m+1][0]+wbox_[0]*(i-1),allwater[m+1][1]+wbox_[1]*(j-1),allwater[m+1][2]+wbox_[2]*(k-1)));
                         water->push_back(Vector(allwater[m+2][0]+wbox_[0]*(i-1),allwater[m+2][1]+wbox_[1]*(j-1),allwater[m+2][2]+wbox_[2]*(k-1)));
-                        cout << "after wrap" << endl;
-                        cout << allwater[m][0]+wbox_[0]*(i-1) << "  "<<allwater[m][1]+wbox_[1]*(j-1)<< "  "<<allwater[m][2]+wbox_[2]*(k-1)<<endl;
-                        cout << allwater[m+1][0]+wbox_[0]*(i-1) << "  "<<allwater[m+1][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+1][2]+wbox_[2]*(k-1)<<endl;
-                        cout << allwater[m+2][0]+wbox_[0]*(i-1) << "  "<<allwater[m+2][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+2][2]+wbox_[2]*(k-1)<<endl;
+                       // cout << "after wrap" << endl;
+                        //cout << allwater[m][0]+wbox_[0]*(i-1) << "  "<<allwater[m][1]+wbox_[1]*(j-1)<< "  "<<allwater[m][2]+wbox_[2]*(k-1)<<endl;
+                       // cout << allwater[m+1][0]+wbox_[0]*(i-1) << "  "<<allwater[m+1][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+1][2]+wbox_[2]*(k-1)<<endl;
+                       // cout << allwater[m+2][0]+wbox_[0]*(i-1) << "  "<<allwater[m+2][1]+wbox_[1]*(j-1)<< "  "<<allwater[m+2][2]+wbox_[2]*(k-1)<<endl;
                       
                       }//  cout<<"i   "<<i<<"   j   "<<j<<"   k  "<<k<<"   n   "<<endl;                  
                     }
