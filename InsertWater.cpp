@@ -20,7 +20,7 @@ void InsertWater::insert(atom *inserted){
     readpotential.potential(&potent);
     //cout << water_.size()<<endl;
     for (int i=0;i<water_.size();i++) {
-		cout << water_.size()<< "   "<< i<<endl;
+		//cout << water_.size()<< "   "<< i<<endl;
         int flag=1;
         
         //for(int k =0; k<3;k++){
@@ -48,7 +48,7 @@ void InsertWater::insert(atom *inserted){
 		//}
 	        if (flag == 1){
 				insertedwater++;
-				cout << "inserted   "<<insertedwater<<endl;
+				cout << "inserted   "<<i<<"   "<<water_.size()<<"   "  <<insertedwater<<"   "<< double(insertedwater)/i<<endl;
 	            inserted->push_back(water_[i+0]);
 	            //cout << water_[i+0][0]<<" "<< water_[i+1][1]<<" "<<water_[i+2][2]<<" "<<endl;
 	            inserted->push_back(water_[i+1]);
