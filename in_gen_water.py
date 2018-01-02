@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  untitled.py
+#  in_gen_water.py
 #  
 #  Copyright 2016 weiwei <weiwei@xps8700>
 #  
@@ -23,7 +23,6 @@
 #  
 
 
-#test
 
 import os
 import numpy as np
@@ -36,12 +35,12 @@ import contextlib
 import collections
 import random
 
-f = open("MD_npt.data","r")
+f = open("after_min.data","r")
 outf = "polymerwater.data"
 lines = f.readlines()
 i=2
 ic = 300
-nchains = 179
+nchains = 204
 chargedensity = 0.5
 nions = nchains*64*chargedensity
 
@@ -143,11 +142,11 @@ for m in range(nimproper):
 p = open("insertedwater.txt","r")
 water = p.readlines()
 natomn = natom + (len(water)-2)
-natomtn = natomt +2
+natomtn = natomt 
 nbondn = nbond + (len(water)-2)*2/3
-nbondtn = nbondt + 1
+nbondtn = nbondt 
 nanglen = nangle + (len(water)-2)/3
-nangletn = nanglet + 1
+nangletn = nanglet 
 ndihedraln = ndihedral
 nimpropern = nimproper
 ndihedraltn = ndihedralt
@@ -160,13 +159,13 @@ index = natom+1
 for i in range(2,len(water)):
     pos = np.asarray([water[i].split()[0],water[i].split()[1],water[i].split()[2]],dtype=float)
     if((i-2)%3==0):
-        atomsn.append([ic,natomt+1,-0.820,pos])
-        bondsn.append([nbondt+1,index, index+1])
-        bondsn.append([nbondt+1,index, index+2])
-        anglesn.append([nanglet+1, index+1,index,index+2])
+        atomsn.append([ic,19,-0.820,pos])
+        bondsn.append([20,index, index+1])
+        bondsn.append([20,index, index+2])
+        anglesn.append([24, index+1,index,index+2])
         index += 3
     else:
-        atomsn.append([ic,natomt+2,0.410,pos])
+        atomsn.append([ic,20,0.410,pos])
     
 
 out_file = open(outf,"w")
@@ -191,55 +190,19 @@ str(box[4])+' '+str(box[5])+' zlo zhi'+'\n'+'\n'+'Masses'+'\n'+'\n')
 
 for i in range(len(natomts)):
     out_file.write(natomts[i])
-out_file.write(str(len(natomts)+1)+' '+str(15.9994)+'\n')
-out_file.write(str(len(natomts)+2)+' '+str(1.008)+'\n'+'\n')
-out_file.write("Bond Coeffs"+'\n'+'\n')
+
+out_file.write('\n'+"Bond Coeffs"+'\n'+'\n')
 for i in range(len(nbondts)):
     out_file.write(nbondts[i])
-out_file.write(str(nbondt+1)+' '+str(1000.0)+' '+str(1.0)+'\n'+'\n')
-out_file.write("Angle Coeffs"+'\n'+'\n')
+
+out_file.write('\n'+"Angle Coeffs"+'\n'+'\n')
 for i in range(len(nanglets)):
     out_file.write(nanglets[i])
-out_file.write(str(nanglet+1)+' '+str(100.0)+' '+str(109.47)+'\n'+'\n')
-out_file.write("Dihedral Coeffs"+'\n'+'\n')
+out_file.write('\n'+"Dihedral Coeffs"+'\n'+'\n')
 for i in range(len(ndihedralts)):
     out_file.write(ndihedralts[i])
 
 
-
-#out_file.write('PS with ' + str(nchains) +' chains and ' + str(64) + ' internal PS monomers per chain and ' + str(64) +' int PMMA monomers per chain'+ 'and ' + str(nions) + ' ions' + ' '+str(len(water)-1)+' waters' +'\n'
-#+ '\n' +
-#str(natom) + ' ' + 'atoms' + '\n'
-#+ str(nbond) + ' ' + 'bonds' + '\n'
-#+ str(nangle) + ' ' + 'angles' + '\n'
-#+ str(ndihedral) + ' ' + 'dihedrals' + '\n'
-#+ str(nimproper) + ' ' + 'impropers' + '\n'
-#+ '\n'
-#+ str(natomt)+' atom types'+'\n'+
-#str(nbondt)+' bond types'+'\n'+
-#str(nanglet)+' angle types'+'\n'+
-#str(ndihedralt)+' dihedral types'+'\n'+
-#str(2)+' improper types'+'\n'+'\n'+
-
-#str(box[0])+' '+str(box[1])+' xlo xhi'+'\n'+
-#str(box[2])+' '+str(box[3])+' ylo yhi'+'\n'+
-#str(box[4])+' '+str(box[5])+' zlo zhi'+'\n'+'\n'+'Masses'+'\n'+'\n')
-
-#for i in range(len(natomts)):
-    #out_file.write(natomts[i])
-
-#out_file.write('\n'+"Bond Coeffs"+'\n'+'\n')
-#for i in range(len(nbondts)):
-    #out_file.write(nbondts[i])
-
-#out_file.write('\n'+"Angle Coeffs"+'\n'+'\n')
-#for i in range(len(nanglets)):
-    #out_file.write(nanglets[i])
-
-#out_file.write('\n'+"Dihedral Coeffs"+'\n'+'\n')
-#for i in range(len(ndihedralts)):
-    #out_file.write(ndihedralts[i])
-    
     
 out_file.write('\n'+'Atoms'+'\n'+'\n')
 for i in range(len(atoms)):
